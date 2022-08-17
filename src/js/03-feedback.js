@@ -1,4 +1,4 @@
-import throttle from 'lodash.thnpm i simplelightbox@2.9.0rottle';
+import throttle from 'lodash.throttle';
 // const throttle = require('lodash.throttle');
 
 const form = document.querySelector('.feedback-form');

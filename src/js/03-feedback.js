@@ -20,7 +20,7 @@ if (localStorage.getItem(LOCAL_KEY)) {
 email.value = options.email;
 message.value = options.message;
 
-form.addEventListener('input', throttle(onInput, 200));
+form.addEventListener('input', throttle(onInput, 500));
 form.addEventListener('submit', onSubmit);
 
 function onInput(evt) {
@@ -29,6 +29,13 @@ function onInput(evt) {
 }
 function onSubmit(evt) {
   evt.preventDefault();
-  evt.currentTarget.reset();
+
+  const formData = new FormData(evt.target);
+  formData.forEach((value, key) => {
+    options[key] = value;
+  });
+  console.log(options);
+
+  evt.target.reset();
   localStorage.removeItem(LOCAL_KEY);
 }

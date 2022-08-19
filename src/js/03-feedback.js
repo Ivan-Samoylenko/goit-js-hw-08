@@ -34,6 +34,9 @@ function onSubmit(evt) {
   formData.forEach((value, key) => {
     options[key] = value;
   });
+  if (options.email.trim() && options.message.trim()) {
+    return;
+  }
   console.log(options);
 
   evt.target.reset();
